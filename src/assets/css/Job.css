@@ -1,0 +1,107 @@
+.job__container {
+  width: 80vw;
+  height: 250px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px -8px var(--dark-grayish-cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job__left-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.job__logo {
+  display: none;
+}
+
+.job__description__firstline {
+  color: var(--desaturated-dark-cyan);
+  font-weight: var(--font-heavy);
+}
+
+.job__description__firstline-tags {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 160px;
+  margin-left: 10px;
+}
+
+.job__description__firstline-tags div {
+  padding: 5px 10px;
+  background-color: var(--desaturated-dark-cyan);
+  border-radius: 20px;
+  color: white;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  font-weight: var(--font-heavy);
+}
+
+.job__description__firstline-tags :nth-child(2) {
+  background-color: black;
+}
+
+.job__description__secondline {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: var(--font-heavy);
+}
+
+.job__description__secondline:hover {
+  color: var(--desaturated-dark-cyan);
+}
+.job__description {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 80%;
+  justify-content: space-around;
+}
+
+.job__description__thirdline ul {
+  width: 260px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--dark-grayish-cyan);
+}
+
+.job__description__thirdline li:first-child {
+  list-style: none;
+}
+@media screen and (min-width: 414px) {
+  .job__container {
+    height: 180px;
+  }
+
+  .job__logo {
+    flex-basis: 20%;
+    display: block;
+  }
+
+  .job {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .job__left-panel {
+    width: 50%;
+  }
+}
