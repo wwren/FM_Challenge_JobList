@@ -1,0 +1,9 @@
+.tag {
+  padding: 6px;
+  border-radius: 5px;
+  background-color: var(--light-grayish-cyan__filter-tablets);
+  color: var(--desaturated-dark-cyan);
+  font-weight: var(--font-heavy);
+  height: fit-content;
+  margin-left: 20px;
+}

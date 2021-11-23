@@ -1,6 +1,7 @@
 import React from "react";
 import { JobType } from "../../types/types";
 import "../../assets/css/Job.css";
+import Tag from "./Tag";
 
 function Job({ job }: { job: JobType }) {
   return (
@@ -32,7 +33,17 @@ function Job({ job }: { job: JobType }) {
             </div>
           </div>
         </div>
-        <div className="job__right-panel"></div>
+        <div className="job__right-panel">
+          <Tag>{job.role}</Tag>
+          <Tag>{job.level}</Tag>
+          {job.languages.map((language) => {
+            return (
+              <React.Fragment key={language}>
+                <Tag>{language}</Tag>
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

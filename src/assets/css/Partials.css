@@ -12,8 +12,3 @@
     background-image: url("../images/bg-header-desktop.svg");
   }
 }
-
-.main {
-  background-color: var(--light-grayish-cyan__background);
-  height: 80vh;
-}

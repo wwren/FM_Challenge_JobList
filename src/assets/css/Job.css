@@ -86,6 +86,13 @@
 .job__description__thirdline li:first-child {
   list-style: none;
 }
+
+.job__right-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (min-width: 414px) {
   .job__container {
     height: 180px;

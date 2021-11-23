@@ -30,3 +30,7 @@ export interface JobType {
   languages: Language[];
   tools: Tool[];
 }
+
+export interface ChildProps {
+  children: React.ReactNode;
+}

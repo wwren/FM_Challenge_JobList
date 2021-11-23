@@ -1,10 +1,7 @@
 import React from "react";
+import { ChildProps } from "../../types/types";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-function Content(props: Props) {
+function Content(props: ChildProps) {
   return <main className="main">{props.children}</main>;
 }
 
