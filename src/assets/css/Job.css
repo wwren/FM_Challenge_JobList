@@ -106,6 +106,10 @@
   border-top: var(--dark-grayish-cyan) 2px solid;
 }
 
+.job__right-panel > * {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 870px) {
   .job__container {
     flex-direction: row;
