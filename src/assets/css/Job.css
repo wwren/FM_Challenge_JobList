@@ -14,7 +14,7 @@
 }
 
 .container:not(.search-bar):hover {
-  border-left: 3px solid var(--desaturated-dark-cyan);
+  border-left: 5px solid var(--desaturated-dark-cyan);
 }
 
 .content {

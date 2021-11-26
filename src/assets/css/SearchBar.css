@@ -12,7 +12,7 @@
 
 .left-panel.search-tag {
   justify-content: flex-start;
-  gap: 12px;
+  gap: 20px;
   width: 70%;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,5 +45,9 @@
   .search-tag {
     width: 85%;
     flex-direction: unset;
+  }
+
+  .left-panel.search-tag {
+    gap: 12px;
   }
 }
