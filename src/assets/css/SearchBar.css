@@ -1,15 +1,26 @@
 .search-bar {
-  height: 70px;
+  height: 100px;
   position: relative;
   transform: translateY(-50%);
   margin-bottom: 10px;
   flex-direction: row;
 }
 
+.search-content {
+  flex-direction: row;
+}
+
 .left-panel.search-tag {
   justify-content: flex-start;
-  width: 85%;
   gap: 12px;
+  width: 70%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.left-panel.search-tag div {
+  width: fit-content;
+  font-size: 0.8rem;
 }
 
 .right-panel {
@@ -21,4 +32,18 @@
   color: var(--desaturated-dark-cyan);
   font-weight: var(--font-heavy);
   cursor: pointer;
+}
+
+@media screen and (min-width: 414px) {
+  .search-bar {
+    height: 70px;
+  }
+  .search-content {
+    flex-direction: unset;
+  }
+
+  .search-tag {
+    width: 85%;
+    flex-direction: unset;
+  }
 }

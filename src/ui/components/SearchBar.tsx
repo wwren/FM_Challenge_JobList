@@ -12,7 +12,7 @@ function SearchBar({
 }) {
   return (
     <div className="container search-bar">
-      <div className="content">
+      <div className="content search-content">
         <div className="left-panel search-tag">
           {filters.map((filter) => {
             return (
