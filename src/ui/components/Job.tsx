@@ -3,11 +3,17 @@ import { JobType } from "../../types/types";
 import "../../assets/css/Job.css";
 import Tag from "./Tag";
 
-function Job({ job }: { job: JobType }) {
+function Job({
+  job,
+  setFilters,
+}: {
+  job: JobType;
+  setFilters: (value: string[]) => void;
+}) {
   return (
-    <div className="job__container" tabIndex={-1}>
-      <div className="job">
-        <div className="job__left-panel">
+    <div className="container" tabIndex={-1}>
+      <div className="content">
+        <div className="left-panel">
           <div className="job__logo">
             <img src={job.logo} alt={`${job.company}-logo`} />
           </div>
@@ -34,12 +40,12 @@ function Job({ job }: { job: JobType }) {
           </div>
         </div>
         <div className="job__right-panel">
-          <Tag>{job.role}</Tag>
-          <Tag>{job.level}</Tag>
+          <Tag name={job.role} setFilters={setFilters} />
+          <Tag name={job.level} setFilters={setFilters} />
           {job.languages.map((language) => {
             return (
               <React.Fragment key={language}>
-                <Tag>{language}</Tag>
+                <Tag name={language} setFilters={setFilters} />
               </React.Fragment>
             );
           })}

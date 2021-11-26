@@ -1,11 +1,3 @@
-enum Language {
-  HTML,
-  CSS,
-  JavaScript,
-  Python,
-  Ruby,
-}
-
 enum Tool {
   React,
   Sass,
@@ -27,10 +19,14 @@ export interface JobType {
   level: string;
   contract: string;
   location: string;
-  languages: Language[];
+  languages: string[];
   tools: Tool[];
 }
 
 export interface ChildProps {
   children: React.ReactNode;
+}
+
+export interface TagProp extends ChildProps {
+  setFilters: (value: string[]) => void;
 }

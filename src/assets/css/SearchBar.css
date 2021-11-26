@@ -1,0 +1,24 @@
+.search-bar {
+  height: 70px;
+  position: relative;
+  transform: translateY(-50%);
+  margin-bottom: 10px;
+  flex-direction: row;
+}
+
+.left-panel.search-tag {
+  justify-content: flex-start;
+  width: 85%;
+  gap: 12px;
+}
+
+.right-panel {
+  display: table-cell;
+  margin: auto 0;
+}
+
+.right-panel a {
+  color: var(--desaturated-dark-cyan);
+  font-weight: var(--font-heavy);
+  cursor: pointer;
+}
