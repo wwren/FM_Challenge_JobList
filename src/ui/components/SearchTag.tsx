@@ -9,6 +9,7 @@ function SearchTag({
   setFilters: (prev: any) => any;
 }) {
   const currTag = useRef() as React.MutableRefObject<HTMLSpanElement>;
+  // const currTag = useRef<HTMLSpanElement>();
 
   const _handleOnClick = () => {
     console.log("currTag", currTag.current.innerHTML);
