@@ -1,8 +1,29 @@
 .tag {
+  border: none;
   padding: 6px;
   border-radius: 5px;
   background-color: var(--light-grayish-cyan__filter-tablets);
   color: var(--desaturated-dark-cyan);
   font-weight: var(--font-heavy);
   height: fit-content;
+  cursor: pointer;
+}
+
+.tag.tag--search-tag {
+  border-radius: 5px 0 0 5px;
+}
+.tag:hover:not(.tag--search-tag) {
+  background-color: var(--desaturated-dark-cyan);
+  color: #ffffff;
+}
+
+.tag.tag--search-tag + span {
+  background-color: var(--desaturated-dark-cyan);
+  border-radius: 0 5px 5px 0;
+  padding: 6px;
+}
+
+.tag.tag--search-tag + span:hover {
+  cursor: pointer;
+  background-color: var(--very-dark-grayish-cyan);
 }

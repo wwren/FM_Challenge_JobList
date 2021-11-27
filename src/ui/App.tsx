@@ -5,8 +5,13 @@ import Nav from "./partials/Nav";
 import Content from "./partials/Content";
 import Job from "./components/Job";
 
+import SearchBar from "./components/SearchBar";
+
 function App() {
+  const [jobsDB, setJobsDB] = useState<JobType[]>();
+  // 'Jobs' is a copy instance of jobsDB (linked with database) which controls the jobs in the job list
   const [jobs, setJobs] = useState<JobType[]>();
+  const [filters, setFilters] = useState<string[]>([]);
 
   useEffect(() => {
     let mounted = true;
@@ -15,8 +20,8 @@ function App() {
       fetch("./api/data.json")
         .then((response) => response.json())
         .then((data) => {
+          setJobsDB(data);
           setJobs(data);
-          console.log("jobs", jobs);
         });
     }
     return () => {
@@ -24,13 +29,38 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    let mounted = true;
+
+    if (mounted) {
+      var newJobs: JobType[] = [];
+      if (jobsDB) {
+        for (const job of jobsDB) {
+          const allTags: string[] = [job.role, job.level].concat(job.languages);
+          const shouldKeep = filters.every(
+            (filter) => allTags.indexOf(filter) > -1
+          );
+          if (shouldKeep) {
+            newJobs?.push(job);
+          }
+        }
+      }
+      console.log("filters", filters);
+      setJobs(newJobs);
+    }
+    return () => {
+      mounted = false;
+    };
+  }, [filters]);
+
   return (
     <div className="App">
       <Nav></Nav>
+      <SearchBar filters={filters} setFilters={setFilters} />
       <Content>
         {jobs &&
           jobs.map((job: JobType) => {
-            return <Job job={job} />;
+            return <Job job={job} setFilters={setFilters} />;
           })}
       </Content>
     </div>
