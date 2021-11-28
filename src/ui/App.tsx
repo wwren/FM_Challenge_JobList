@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { JobType } from "../types/types";
-import "../assets/css/App.css";
 import Nav from "./partials/Nav";
 import Content from "./partials/Content";
 import Job from "./components/Job";
-
 import SearchBar from "./components/SearchBar";
+import Footer from "./components/Footer";
 
 function App() {
   const [jobsDB, setJobsDB] = useState<JobType[]>();
@@ -54,16 +53,19 @@ function App() {
   }, [filters]);
 
   return (
-    <div className="App">
-      <Nav></Nav>
-      <SearchBar filters={filters} setFilters={setFilters} />
-      <Content>
-        {jobs &&
-          jobs.map((job: JobType) => {
-            return <Job job={job} setFilters={setFilters} />;
-          })}
-      </Content>
-    </div>
+    <>
+      <div className="App" style={{ paddingBottom: "100px" }}>
+        <Nav></Nav>
+        <SearchBar filters={filters} setFilters={setFilters} />
+        <Content>
+          {jobs &&
+            jobs.map((job: JobType) => {
+              return <Job job={job} setFilters={setFilters} />;
+            })}
+        </Content>
+      </div>
+      <Footer />
+    </>
   );
 }
 

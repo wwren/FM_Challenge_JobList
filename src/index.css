@@ -18,6 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 15px;
   background-color: var(--light-grayish-cyan__background);
+  overflow-x: hidden;
 }
 
 code {
