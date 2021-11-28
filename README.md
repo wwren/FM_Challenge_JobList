@@ -39,7 +39,28 @@ Use this section to recap over some of your major learnings while working throug
 
 To see how you can add code snippets, see below:
 
-- vertical center anchor tag inside div
+- css: show left border on hover
+
+```css
+/* Bad option: set border-left but it will change the box size and element will move */
+.container:hover {
+  border-left: 5px solid var(--desaturated-dark-cyan);
+}
+
+/* Good option: make use of :before & take it out of the document flow */
+.container:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 100%;
+  width: 5px;
+  background-color: var(--desaturated-dark-cyan);
+}
+```
+
+- css: vertical center anchor tag inside div
 
 ```css
 div {
@@ -49,7 +70,7 @@ div {
 /* or can set line height for anchor tag which will adds to the padding of the container  */
 ```
 
-- useRef in TypeScript
+- TypeScript: useRef in TypeScript
 
 ```ts
 // error: Type 'MutableRefObject<undefined>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'. Type 'MutableRefObject<undefined>' is not assignable to type 'RefObject<HTMLSpanElement>'. Types of property 'current' are incompatible. Type 'undefined' is not assignable to type 'HTMLSpanElement| null'.
@@ -61,7 +82,7 @@ const currTag = useRef<HTMLSpanElement>(null);
 const currTag = useRef() as React.MutableRefObject<HTMLSpanElement>;
 ```
 
-- Type Assertion TypeScript
+- TypeScript: Type Assertion TypeScript
 
 ```ts
 // option 1 // as
