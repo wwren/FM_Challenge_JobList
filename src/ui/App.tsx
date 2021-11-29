@@ -6,7 +6,7 @@ import Nav from "./partials/Nav";
 import Content from "./partials/Content";
 import Job from "./components/Job";
 import SearchBar from "./components/SearchBar";
-import Footer from "./components/Footer";
+import Footer from "./partials/Footer";
 
 function App() {
   const jobs = useSelector((state: any) => state.jobs.jobs);
