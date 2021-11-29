@@ -1,4 +1,5 @@
 export const ActionTypes = {
   SET_JOBS: "SET_JOBS",
   SET_FILTERS: "SET_FILTERS",
+  SET_JOBS_BASE_ON_FILTERS: "SET_JOBS_BASE_ON_FILTERS",
 };

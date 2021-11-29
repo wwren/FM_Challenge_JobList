@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setJobs } from "../redux/actions/jobActions";
+import { setJobs, setJobBaseOnFilters } from "../redux/actions/jobActions";
 import { JobType } from "../types/types";
 import Nav from "./partials/Nav";
 import Content from "./partials/Content";
@@ -11,9 +11,8 @@ import Footer from "./components/Footer";
 function App() {
   const jobs = useSelector((state: any) => state.jobs.jobs);
   const filters = useSelector((state: any) => state.filters);
+  const jobsOnBoard = useSelector((state: any) => state.jobsOnBoard);
   const dispatch = useDispatch();
-
-  const [jobsOnBoard, setjobsOnBoard] = useState(jobs);
 
   useEffect(() => {
     let mounted = true;
@@ -23,7 +22,7 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           dispatch(setJobs(data));
-          setjobsOnBoard(data);
+          dispatch(setJobBaseOnFilters(data, filters));
         });
     }
     return () => {
@@ -34,20 +33,7 @@ function App() {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      var newJobs: JobType[] = [];
-      if (jobs) {
-        for (const job of jobs) {
-          const allTags: string[] = [job.role, job.level].concat(job.languages);
-          const shouldKeep = filters.every(
-            (filter: string) => allTags.indexOf(filter) > -1
-          );
-          if (shouldKeep) {
-            newJobs?.push(job);
-          }
-        }
-      }
-      console.log("newJobs", newJobs);
-      setjobsOnBoard(newJobs);
+      dispatch(setJobBaseOnFilters(jobs, filters));
     }
     return () => {
       mounted = false;
@@ -60,7 +46,7 @@ function App() {
         <Nav></Nav>
         {filters.length > 0 && <SearchBar />}
         <Content>
-          {jobsOnBoard &&
+          {jobsOnBoard.length > 0 &&
             jobsOnBoard.map((job: JobType) => {
               return <Job job={job} />;
             })}
