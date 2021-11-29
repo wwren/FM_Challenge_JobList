@@ -56,7 +56,9 @@ function App() {
     <>
       <div className="App" style={{ paddingBottom: "100px" }}>
         <Nav></Nav>
-        <SearchBar filters={filters} setFilters={setFilters} />
+        {filters.length > 0 && (
+          <SearchBar filters={filters} setFilters={setFilters} />
+        )}
         <Content>
           {jobs &&
             jobs.map((job: JobType) => {
