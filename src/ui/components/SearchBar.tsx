@@ -1,29 +1,26 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilters } from "../../redux/actions/filterActions";
 import "../../assets/css/SearchBar.css";
-import { ChildProps } from "../../types/types";
 import SearchTag from "./SearchTag";
 
-function SearchBar({
-  filters,
-  setFilters,
-}: {
-  filters: string[];
-  setFilters: (prev: any) => any;
-}) {
+function SearchBar() {
+  const filters = useSelector((state: any) => state.filters);
+  const dispatch = useDispatch();
   return (
     <div className="container search-bar">
       <div className="content search-content">
         <div className="left-panel search-tag">
-          {filters.map((filter) => {
+          {filters.map((filter: string) => {
             return (
               <React.Fragment key={filter}>
-                <SearchTag name={filter} setFilters={setFilters} />
+                <SearchTag name={filter} />
               </React.Fragment>
             );
           })}
         </div>
         <div className="right-panel">
-          <a href="#" onClick={() => setFilters([])}>
+          <a href="#" onClick={() => dispatch(setFilters([]))}>
             Clear
           </a>
         </div>

@@ -23,6 +23,11 @@ export interface JobType {
   tools: Tool[];
 }
 
+export type Action = {
+  type: string;
+  payload: any;
+};
+
 export interface ChildProps {
   children: React.ReactNode;
 }
