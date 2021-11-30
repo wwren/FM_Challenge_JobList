@@ -1,4 +1,4 @@
-# Frontend Component Job List :eyes:
+# Job List in React & Redux :eyes:
 
 <p>
 <img src="./desktop.png" width="100%">
