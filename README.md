@@ -29,7 +29,7 @@ The app can be accessed at the link below.
 
 ## Technologies
 
-- Frontend: React.js, JavaScript, HTML & CSS
+- Frontend: React.js, TypeScript, HTML & CSS
 
 ---
 
