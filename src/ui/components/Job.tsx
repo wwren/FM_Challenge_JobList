@@ -6,7 +6,7 @@ import Tag from "./Tag";
 
 function Job({ job }: { job: JobType }) {
   return (
-    <div className="container" tabIndex={-1}>
+    <div className="container" tabIndex={0}>
       <div className="content">
         <div className="left-panel">
           <div className="job__logo">
@@ -22,7 +22,7 @@ function Job({ job }: { job: JobType }) {
                 </div>
               )}
             </div>
-            <a className="job__description__secondline" href="#">
+            <a className="job__description__secondline" href="#" tabIndex={-1}>
               {job.position}
             </a>
             <div className="job__description__thirdline">

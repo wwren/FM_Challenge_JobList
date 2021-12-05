@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setJobs, setJobBaseOnFilters } from "../redux/actions/jobActions";
 import { JobType } from "../types/types";
@@ -48,7 +48,11 @@ function App() {
         <Content>
           {jobsOnBoard.length > 0 &&
             jobsOnBoard.map((job: JobType) => {
-              return <Job job={job} />;
+              return (
+                <React.Fragment key={job.id}>
+                  <Job job={job} />
+                </React.Fragment>
+              );
             })}
         </Content>
       </div>

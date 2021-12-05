@@ -8,11 +8,11 @@ function SearchTag({ name }: { name: string }) {
   const dispatch = useDispatch();
   const currTag = useRef() as React.MutableRefObject<HTMLSpanElement>;
 
-  const _handleOnClick = () => {
-    console.log("currTag", currTag.current.innerHTML);
-    const filter = currTag.current.innerHTML;
-    console.log("filters", filters);
-    dispatch(setFilters(filters.filter((ele: any) => ele != filter)));
+  const _handleOnClick = (e: any) => {
+    if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
+      const filter = currTag.current.innerHTML;
+      dispatch(setFilters(filters.filter((ele: any) => ele != filter)));
+    }
   };
 
   return (
@@ -21,7 +21,11 @@ function SearchTag({ name }: { name: string }) {
         {name}
       </span>
       <span>
-        <Delete onClick={_handleOnClick} />
+        <Delete
+          onClick={_handleOnClick}
+          onKeyDown={_handleOnClick}
+          tabIndex={0}
+        />
       </span>
     </div>
   );

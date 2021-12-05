@@ -14,8 +14,8 @@ function Tag({ name }: { name: string }) {
     const newFilters = filters.includes(filter)
       ? filters
       : [...filters, filter];
-    console.log("filters", filters);
-    console.log("include", filters.includes(filter));
+    // console.log("filters", filters);
+    // console.log("include", filters.includes(filter));
     dispatch(setFilters(newFilters));
   };
   return (
